@@ -101,7 +101,7 @@ jobs:
     #      pip install jmcomic -i https://pypi.org/project --upgrade
 
       - name: 安装jmcomic（local）
-        if: ${{ github.ref == 'refs/heads/dev' }}
+        if: ${{ github.ref != 'refs/heads/dev' }}
         run: |
           pip install -e ./
 
