@@ -22,8 +22,6 @@ class DownloadCallback:
                f'开始下载章节: {photo.id} ({photo.album_id}[{photo.index}/{len(photo.from_album)}]), '
                f'标题: [{photo.name}], '
                f'图片数为[{len(photo)}]'
-               f'tags[{photo.tags}]'
-               f'path[{photo.save_path}]'
                )
 
     def after_photo(self, photo: JmPhotoDetail):
@@ -72,7 +70,6 @@ class JmDownloader(DownloadCallback):
             apply=lambda photo: self.download_by_photo_detail(photo, client),
             count_batch=self.option.decide_photo_batch_count(album)
         )
-        # todo 打印eze info.json
 
         self.after_album(album)
 

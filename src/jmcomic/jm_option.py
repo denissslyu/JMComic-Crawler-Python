@@ -272,6 +272,13 @@ class JmOption:
         if ensure_exists:
             try:
                 mkdir_if_not_exists(save_dir)
+                # todo 保存meta
+                jm_log('makedir',
+                       f'开始下载章节: {photo.id} ({photo.album_id}[{photo.index}/{len(photo.from_album)}]), '
+                       f'标题: [{photo.name}], '
+                       f'图片数为[{len(photo)}]'
+                       f'dir: [{save_dir}]'
+                       )
             except OSError as e:
                 if e.errno == 36:
                     # 目录名过长
