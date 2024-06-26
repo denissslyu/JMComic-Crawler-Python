@@ -95,13 +95,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
 
-      - name: 安装jmcomic（pip）
-        if: ${{ github.ref != 'refs/heads/dev' }}
-        run: |
-          pip install jmcomic -i https://pypi.org/project --upgrade
+    #  - name: 安装jmcomic（pip）
+   #     if: ${{ github.ref != 'refs/heads/dev' }}
+    #    run: |
+    #      pip install jmcomic -i https://pypi.org/project --upgrade
 
       - name: 安装jmcomic（local）
-        if: ${{ github.ref == 'refs/heads/dev' }}
+        if: ${{ github.ref != 'refs/heads/dev' }}
         run: |
           pip install -e ./
 
